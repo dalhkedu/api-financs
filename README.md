@@ -2,7 +2,7 @@
 
 Python, Flask
 
-#### Tabela de Financimento SAC
+#### Tabela de Financiamento SAC
 
 Método: POST
 
