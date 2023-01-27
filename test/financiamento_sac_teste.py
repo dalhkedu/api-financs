@@ -39,7 +39,7 @@ class FinanciamentoSacTeste(unittest.TestCase):
         parcelas = fi.get_saldo_juros_mes_sac()
         parcelas = fi.calcula_valor_parcela_mes_sac(parcelas)
         self.assertEqual(fi.get_amortizacao_sac(), 1000)
-        self.assertEqual(fi.calcula_valor_total_em_juros(parcelas), 379050.0)
+        self.assertEqual(fi.calcula_valor_total_em_juros(parcelas, fi.get_valor_financiado()), 379050.0)
 
     def test_calcula_valor_total(self):
         fi = FinanciamentoSacPrice(360000, 7, 360)

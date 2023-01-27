@@ -27,7 +27,7 @@ def financiamentos_sac():
             "amortizacao": sac.get_amortizacao_sac(),
             "juros_parcela": juros_parcela,
             "valor_parcela": sac_mes,
-            "total_juros": sac.calcula_valor_total_em_juros(sac_mes),
+            "total_juros": sac.calcula_valor_total_em_juros(sac_mes, valor_financiado),
             "total": sac.calcula_valor_total(sac_mes)
         }
         return json.dumps(obj)
@@ -39,10 +39,34 @@ def financiamentos_sac():
 
 @app.post("/financiamentos/price")
 def financiamentos_price():
-    return "<p>Hello, World!</p>"
+    request_data = request.get_json()
+    try:
+        valor_financiado = float(request_data['valor_financiado'])
+        taxa_juros_ano = float(request_data['taxa_juros_ano'])
+        numero_parcela = int(request_data['numero_parcela'])
+        app.logger.debug(f'Log test {request_data}')
+        sac = FinanciamentoSacPrice(valor_financiado, taxa_juros_ano, numero_parcela)
+        mes = sac.get_valor_parcela_price()
+        juros = sac.get_saldo_juros_mes_price()
+        obj = {
+            "valor_financiado": sac.get_valor_financiado(),
+            "taxa_juros_mes": sac.get_taxa_juro_mes_decimal() * 100,
+            "taxa_juros_ano": sac.get_taxa_juro_ano_decimal() * 100,
+            "numero_parcelas": sac.get_numero_parcela(),
+            "amortizacao": sac.get_amortizacao_price(),
+            "juros_parcela": juros,
+            "valor_parcela": sac.get_valor_parcela_price(),
+            "total_juros": sac.calcula_valor_total_em_juros(juros, 0),
+            "total": mes * numero_parcela
+        }
+        return json.dumps(obj)
+    except Exception as e:
+        print("This is not a number. Please enter a valid number")
+        app.logger.error('An error occurred')
+        abort(400, e)
 
 
-@app.post("/financiamentos/carros")
+@app.post("/financiamentos/veiculos")
 def financiamentos_carros():
     return "<p>Hello, World!</p>"
 

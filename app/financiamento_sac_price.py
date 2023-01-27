@@ -26,11 +26,11 @@ class FinanciamentoSacPrice:
             total += parcela
         return total
 
-    def calcula_valor_total_em_juros(self, parcelas) -> float:
+    def calcula_valor_total_em_juros(self, parcelas, valor_financiado) -> float:
         total = 0
         for parcela in parcelas:
             total += parcela
-        return total - self.get_valor_financiado()
+        return total - valor_financiado
 
     # SAC
     def get_amortizacao_sac(self) -> float:
