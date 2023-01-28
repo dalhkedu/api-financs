@@ -5,7 +5,8 @@
 
 class FinanciamentoVeiculo:
 
-    def __init__(self, valor_veiculo, valor_entrada, taxa_juros_mes, numero_parcela):
+    def __init__(self, valor_veiculo, valor_entrada, taxa_juros_mes,
+                 numero_parcela):
         self.valor_veiculo = valor_veiculo
         self.valor_entrada = valor_entrada
         self.taxa_juros_mes = taxa_juros_mes
@@ -24,11 +25,14 @@ class FinanciamentoVeiculo:
         return self.valor_veiculo
 
     def get_numerador(self) -> float:
-        return (((1 + self.get_taxa_juro_decimal()) ** self.get_numero_parcela()) * self.get_valor_financiado()) * \
+        return (((1 + self.get_taxa_juro_decimal())
+                 ** self.get_numero_parcela()) *
+                self.get_valor_financiado()) * \
                self.get_taxa_juro_decimal()
 
     def get_denominador(self) -> float:
-        return ((1 + self.get_taxa_juro_decimal()) ** self.get_numero_parcela()) - 1
+        return ((1 + self.get_taxa_juro_decimal())
+                ** self.get_numero_parcela()) - 1
 
     def calcula_prestacao(self) -> float:
         return self.get_numerador() / self.get_denominador()

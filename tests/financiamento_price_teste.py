@@ -1,4 +1,5 @@
 import unittest
+import pytest
 
 from app.financiamento_sac_price import FinanciamentoSacPrice
 

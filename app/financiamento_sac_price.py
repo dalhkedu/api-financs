@@ -26,7 +26,8 @@ class FinanciamentoSacPrice:
             total += parcela
         return total
 
-    def calcula_valor_total_em_juros(self, parcelas, valor_financiado) -> float:
+    def calcula_valor_total_em_juros(
+            self, parcelas, valor_financiado) -> float:
         total = 0
         for parcela in parcelas:
             total += parcela
@@ -55,9 +56,11 @@ class FinanciamentoSacPrice:
 
     # PRICE
     def get_valor_parcela_price(self) -> float:
-        numerador = ((1 + self.get_taxa_juro_mes_decimal()) ** self.get_numero_parcela()) \
+        numerador = ((1 + self.get_taxa_juro_mes_decimal())
+                     ** self.get_numero_parcela()) \
                     * self.get_taxa_juro_mes_decimal()
-        denominador = ((1 + self.get_taxa_juro_mes_decimal()) ** self.get_numero_parcela()) - 1
+        denominador = ((1 + self.get_taxa_juro_mes_decimal())
+                       ** self.get_numero_parcela()) - 1
         total = self.get_valor_financiado() * (numerador / denominador)
         return total
 
