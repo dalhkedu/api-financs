@@ -25,6 +25,7 @@ def financiamentos_sac():
             "valor_financiado": fin.get_valor_financiado(),
             "taxa_juros_mes": fin.get_taxa_juro_mes_decimal() * 100,
             "taxa_juros_ano": fin.get_taxa_juro_ano_decimal() * 100,
+            "salario_base": fin_mes[0] / 0.3,
             "primeira_parcela": fin_mes[0],
             "ultima_parcela": fin_mes[len(fin_mes) - 1],
             "numero_parcelas": fin.get_numero_parcela(),
@@ -54,6 +55,7 @@ def financiamentos_price():
                                     numero_parcela)
         mes = fin.get_valor_parcela_price()
         juros = fin.get_saldo_juros_mes_price()
+        valor_parcela = fin.get_valor_parcela_price()
         obj = {
             "valor_financiado": fin.get_valor_financiado(),
             "taxa_juros_mes": fin.get_taxa_juro_mes_decimal() * 100,
@@ -61,7 +63,8 @@ def financiamentos_price():
             "numero_parcelas": fin.get_numero_parcela(),
             "amortizacao": fin.get_amortizacao_price(),
             "juros_parcela": juros,
-            "valor_parcela": fin.get_valor_parcela_price(),
+            "valor_parcela": valor_parcela,
+            "salario_base": valor_parcela / 0.3,
             "total_juros": fin.calcula_valor_total_em_juros(juros, 0),
             "total": mes * numero_parcela
         }
