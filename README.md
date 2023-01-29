@@ -2,8 +2,8 @@
 
 Python, Flask
 
-#### Tabela de Financiamento SAC
-
+<details>
+<summary>Tabela de Financiamento SAC</summary>
 Método: POST
 
 http://127.0.0.1:5000/financiamentos/sac
@@ -437,8 +437,9 @@ Status Code: 200 OK
   "total": 170350.0
 }
 ```
-
-#### Tabela de Financiamento PRICE
+</details>
+<details>
+<summary>Tabela de Financiamento PRICE</summary>
 Método: POST
 
 http://127.0.0.1:5000/financiamentos/price
@@ -871,8 +872,9 @@ Response
 	"total": 186121.36021588655
 }
 ```
-
-#### Tabela de Financiamento VEICULOS
+</details>
+<details>
+<summary>Tabela de Financiamento VEICULOS</summary>
 Método: POST
 
 http://127.0.0.1:5000/financiamentos/veiculos
@@ -901,3 +903,4 @@ http://127.0.0.1:5000/financiamentos/veiculos
 	"total": 68082.90956852504
 }
 ```
+</details>
