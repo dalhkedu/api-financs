@@ -871,3 +871,33 @@ Response
 	"total": 186121.36021588655
 }
 ```
+
+#### Tabela de Financiamento VEICULOS
+Método: POST
+
+http://127.0.0.1:5000/financiamentos/veiculos
+
+- Request
+```json
+{
+	"valor_veiculo": "60000",
+	"valor_entrada": "0",
+	"numero_parcela": "12",
+	"taxa_juros_mes": "2"
+}
+```
+
+- Response
+```json
+{
+	"valor_veiculo": 60000.0,
+	"valor_entrada": 0.0,
+	"numero_parcelas": 12,
+	"valor_ipva": 2400.0,
+	"valor_prestacao": 5673.575797377086,
+	"juros_parcela": 2.0,
+	"denominador": 0.2682417945625455,
+	"numerador": 1521.8901534750546,
+	"total": 68082.90956852504
+}
+```

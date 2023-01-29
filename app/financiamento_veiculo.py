@@ -41,3 +41,5 @@ class FinanciamentoVeiculo:
         desconto = 4 / 100
         valor = self.get_valor_veiculo() * desconto
         return valor
+
+
